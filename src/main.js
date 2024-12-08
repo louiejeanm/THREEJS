@@ -24,7 +24,7 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 5, 5);
 scene.add(directionalLight);
 
-// Load the GLB model (Make sure this model is of the character you're trying to display)
+// Load the GLB model 
 const loader = new GLTFLoader();
 loader.load(
   'public/franxx_girl.glb', // Replace with path to the model of the character
@@ -36,14 +36,14 @@ loader.load(
     model.scale.set(2, 2, 2); // Scale the model appropriately
     model.position.set(0, -1, 0); // Position it for better visibility
 
-    // Rotate the model to make the character face the right side
-    model.rotation.y = 0; // Rotation set to 0, facing the right
+    // Rotate the model 
+    model.rotation.y = 0; // Rotation set to 0
 
     // Apply custom colors and materials to mimic the outfit
     model.traverse((child) => {
       if (child.isMesh) {
-        // Change material to reflect character's outfit (e.g., red and white for the Franxx character)
-        if (child.name.includes('Outfit') || child.name.includes('Body')) { // Make sure the correct mesh is targeted
+        // Material to reflect character's outfit 
+        if (child.name.includes('Outfit') || child.name.includes('Body')) { // Making sure the correct mesh is targeted
           child.material = new THREE.MeshStandardMaterial({
             color: 0xff0000, // Red color for the outfit
             emissive: 0xff0000, // Red glow for emissive effect
